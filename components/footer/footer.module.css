@@ -1,0 +1,53 @@
+#footer {
+	background: rgb(177, 179, 191);
+	background: -moz-linear-gradient(
+		273deg,
+		rgba(177, 179, 191, 1) 10%,
+		rgba(120, 131, 148, 1) 32%,
+		rgba(87, 94, 105, 1) 53%,
+		rgba(79, 89, 103, 1) 68%,
+		rgba(56, 56, 59, 1) 97%
+	);
+	background: -webkit-linear-gradient(
+		273deg,
+		rgba(177, 179, 191, 1) 10%,
+		rgba(120, 131, 148, 1) 32%,
+		rgba(87, 94, 105, 1) 53%,
+		rgba(79, 89, 103, 1) 68%,
+		rgba(56, 56, 59, 1) 97%
+	);
+	background: linear-gradient(
+		273deg,
+		rgba(177, 179, 191, 1) 10%,
+		rgba(120, 131, 148, 1) 32%,
+		rgba(87, 94, 105, 1) 53%,
+		rgba(79, 89, 103, 1) 68%,
+		rgba(56, 56, 59, 1) 97%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b1b3bf",endColorstr="#38383b",GradientType=1);
+}
+
+#footer h1 {
+	background: rgb(255, 255, 255);
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 1) 11%,
+		rgba(195, 211, 235, 1) 32%,
+		rgba(93, 142, 219, 1) 57%,
+		rgba(216, 232, 254, 1) 88%,
+		rgba(219, 219, 219, 1) 100%
+	);
+	background-clip: text;
+	color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+
+#footer .sponsors a:hover img {
+	@apply transition-all duration-200 -translate-y-1;
+}
+
+#footer .sponsors a {
+	@apply p-1.5 rounded-md block w-44 h-10 relative; 
+}

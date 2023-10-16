@@ -1,0 +1,11 @@
+li a,
+li p,
+li button {
+	@apply text-lg tracking-wide cursor-pointer uppercase;
+}
+li {
+	@apply overflow-hidden;
+}
+li div {
+	@apply w-full h-0.5 bg-white transition-all duration-200;
+}
