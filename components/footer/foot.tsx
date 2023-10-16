@@ -16,7 +16,7 @@ const Footer = () => {
 	return (
 		<div
 			ref={ref}
-			className="bg-blue-950 min-h-[16rem]"
+			className="primary-color min-h-[16rem]"
 		>
 			{isInView && (
 				<motion.footer

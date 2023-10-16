@@ -1,0 +1,7 @@
+.gala-title h1,
+.gala-title p {
+	@apply text-center;
+}
+p.subtag {
+	@apply text-lg md:text-xl lg:text-xl font-semibold text-center;
+}
