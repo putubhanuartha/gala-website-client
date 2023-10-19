@@ -28,7 +28,7 @@ const Footer = () => {
 						ease: [0.61, 0.25, 0.0, 1.65],
 					}}
 					id={`${styles.footer}`}
-					className="h-full"
+					className="h-full grey-gradient"
 				>
 					<div className="container mx-auto h-full text-white flex items-start gap-y-10 flex-wrap py-5">
 						<div className="max-w-sm flex flex-col gap-y-3">

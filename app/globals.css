@@ -28,11 +28,11 @@
 	}
 	.primary-color-revert {
 		background: linear-gradient(
-			90deg,
-			rgba(7, 59, 98, 1) 7%,
-			rgba(7, 27, 48, 1) 55%,
-			rgba(12, 18, 52, 1) 82%,
-			rgba(0, 0, 0, 1) 100%
+			-90deg,
+			rgba(0, 0, 0, 1) 7%,
+			rgba(12, 18, 52, 1) 55%,
+			rgba(7, 27, 48, 1) 82%,
+			rgba(7, 59, 98, 1) 100%
 		);
 	}
 	.color-lineup {
@@ -55,6 +55,35 @@
 			rgba(3, 7, 25, 1) 81%
 		);
 	}
+}
+
+.grey-gradient {
+	background: rgb(177, 179, 191);
+	background: -moz-linear-gradient(
+		273deg,
+		rgba(177, 179, 191, 1) 10%,
+		rgba(120, 131, 148, 1) 32%,
+		rgba(87, 94, 105, 1) 53%,
+		rgba(79, 89, 103, 1) 68%,
+		rgba(56, 56, 59, 1) 97%
+	);
+	background: -webkit-linear-gradient(
+		273deg,
+		rgba(177, 179, 191, 1) 10%,
+		rgba(120, 131, 148, 1) 32%,
+		rgba(87, 94, 105, 1) 53%,
+		rgba(79, 89, 103, 1) 68%,
+		rgba(56, 56, 59, 1) 97%
+	);
+	background: linear-gradient(
+		273deg,
+		rgba(177, 179, 191, 1) 10%,
+		rgba(120, 131, 148, 1) 32%,
+		rgba(87, 94, 105, 1) 53%,
+		rgba(79, 89, 103, 1) 68%,
+		rgba(56, 56, 59, 1) 97%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b1b3bf",endColorstr="#38383b",GradientType=1);
 }
 /* Firefox */
 * {
