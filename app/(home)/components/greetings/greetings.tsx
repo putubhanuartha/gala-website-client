@@ -56,7 +56,7 @@ const Greetings = () => {
 					</motion.h1>
 				)}
 			</div>
-			<div className="pt-20 md:pt-24 sticky top-0">
+			<div className="pt-20 md:pt-24 sticky top-0 hidden lg:block">
 				<div className="w-full container mx-auto h-[37rem] overflow-hidden pt-11">
 					<Greeting
 						imageSrc={osis}
@@ -92,7 +92,41 @@ const Greetings = () => {
 					/>
 				</div>
 			</div>
-			<div className="min-h-[300vh]"></div>
+			<div className="w-full container mx-auto flex flex-col lg:hidden gap-y-8 h-fit overflow-auto pt-11">
+				<Greeting
+					imageSrc={osis}
+					desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam qui
+						deserunt dolorem eligendi provident maxime quo est consequatur
+						doloribus hic ipsa, corporis consequuntur quis. Odio nostrum impedit
+						corporis veniam quae!"
+					styleFrameMotion={undefined}
+					title="OSIS Chairman"
+					name="Dery Dwiki Putra"
+				/>
+				<Greeting
+					imageSrc={head}
+					desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+					laborum, deserunt, esse sint animi cum placeat temporibus nobis alias
+					aperiam consectetur eum veritatis libero! Error voluptatum, nulla hic,
+					possimus eum laborum illum perspiciatis sequi amet molestias quibusdam
+					reprehenderit placeat delectus."
+					styleFrameMotion={undefined}
+					name="Drs Suhandak S.Pd"
+					title="School Headmasters"
+				/>
+
+				<Greeting
+					imageSrc={commitee}
+					desc="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio,
+						corrupti. Maiores exercitationem facilis tenetur quisquam minus in
+						quae est voluptatem dolore maxime magnam quis cum impedit soluta, eum
+						corrupti illum."
+					name="Putu Gde Arya S. Kom"
+					styleFrameMotion={undefined}
+					title="School Commitee Chairman"
+				/>
+			</div>
+			<div className="lg:min-h-[300vh] h-fit"></div>
 		</section>
 	);
 };

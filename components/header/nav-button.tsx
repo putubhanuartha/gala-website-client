@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import "./nav-button.css";
+import styles from "./nav-button.module.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import Link from "next/link";
 import ProfileCard from "./profile-card";
@@ -18,7 +18,7 @@ function Navbutton() {
 		};
 	}, []);
 	return (
-		<ul className="flex items-center lg:gap-x-3 xl:gap-x-5 flex-col lg:flex-row gap-y-3">
+		<ul id={styles.navbutton} className="flex items-center lg:gap-x-3 xl:gap-x-5 flex-col lg:flex-row gap-y-3">
 			<li className="group">
 				<Link href={"/"}>Home</Link>
 				<div className="-translate-x-[102%] group-hover:translate-x-0"></div>

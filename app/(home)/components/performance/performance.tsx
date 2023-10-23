@@ -34,8 +34,8 @@ const performanceData: PerformanceCardType[] = [
 ];
 const Performance = () => {
 	return (
-		<section className="relative flex flex-col gap-y-20 items-center primary-color z-40 min-h-screen pt-48 pb-20">
-			<div className="w-full h-32 absolute z-10 -top-10">
+		<section className="relative overflow-hidden flex flex-col xl:gap-y-20 lg:gap-y-16 md:gap-y-11 gap-y-8 items-center primary-color z-40 min-h-screen pt-48  pb-20">
+			<div className="w-full h-32 absolute z-10 lg:-top-10 md:top-0 top-3">
 				<Image
 					src={city}
 					alt="city image"
@@ -46,7 +46,7 @@ const Performance = () => {
 					}}
 				/>
 			</div>
-			<div className="w-full absolute z-30 flex -top-1">
+			<div className="w-full absolute z-30 flex lg:-top-1 md:top-5 top-10">
 				<motion.div
 					animate={{ x: 40 }}
 					transition={{
@@ -133,7 +133,7 @@ const Performance = () => {
 			<h1 className="text-center text-xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-semibold">
 				OUR TALENT PERFORMANCE
 			</h1>
-			<div className="overflow-hidden container mx-auto ">
+			<div className="overflow-hidden container mx-auto">
 				<Swiper
 					navigation={true}
 					modules={[Navigation]}

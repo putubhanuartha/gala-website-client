@@ -31,8 +31,8 @@ const Rockin = () => {
 		>
 			<div
 				className={`${
-					isInView ? "rounded-t-[70%]" : "rounded-t-none"
-				} transition-all duration-700 absolute -top-4 primary-color-revert shadow-[0px_-12px_10px_3px_rgba(34,92,139,0.4)] h-24 w-full z-30 rotate-180`}
+					isInView ? "lg:rounded-t-[70%] md:rounded-t-[50%] rounded-t-[20%]" : "rounded-t-none"
+				} transition-all duration-700 absolute -top-4 primary-color-revert shadow-[0px_-12px_10px_3px_rgba(34,92,139,0.4)] lg:h-24 md:h-20 h-14  w-full z-30 rotate-180`}
 			></div>
 			<div className="flex flex-col items-center gap-y-5">
 				{isInView && (
@@ -86,8 +86,8 @@ const Rockin = () => {
 			</div>
 			<div
 				className={`${
-					isInView ? "rounded-t-[70%]" : "rounded-t-none"
-				} absolute -bottom-2 grey-gradient h-24 w-full z-30 transition-all duration-700 shadow-[0px_-12px_10px_3px_rgba(34,92,139,0.4)]`}
+					isInView ? "lg:rounded-t-[70%] md:rounded-t-[50%] rounded-t-[20%]" : "rounded-t-none"
+				} absolute -bottom-2 grey-gradient lg:h-24 md:h-20 h-14 w-full z-30 transition-all duration-700 shadow-[0px_-10px_10px_3px_rgba(34,92,139,0.4)]`}
 			></div>
 		</section>
 	);
