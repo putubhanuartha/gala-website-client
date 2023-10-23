@@ -15,7 +15,7 @@ const LineupPage = () => {
 				ref={refLocal}
 				className="min-h-screen flex bg-[url('/assets/bg_img/bg_local.jpg')] bg-fixed bg-cover bg-center bg-no-repeat"
 			>
-				<h1 className="m-auto text-7xl font-semibold text-center ">
+				<h1 className="m-auto lg:text-7xl md:text-5xl sm:text-4xl text-2xl font-semibold text-center ">
 					{isInViewLocal && (
 						<motion.span
 							initial={{ x: 100, opacity: 0 }}
@@ -57,7 +57,7 @@ const LineupPage = () => {
 				ref={ref}
 				className="min-h-screen flex bg-[url('/assets/bg_img/bg_international.jpg')] bg-fixed bg-cover bg-center bg-no-repeat"
 			>
-				<h1 className="m-auto text-7xl font-semibold text-center ">
+				<h1 className="m-auto lg:text-7xl md:text-5xl sm:text-4xl text-2xl  font-semibold text-center ">
 					{isInView && (
 						<motion.span
 							initial={{ x: 100, opacity: 0 }}
@@ -94,7 +94,7 @@ const LineupPage = () => {
 						);
 					})}
 					<Link
-						className="text-white active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_3px_rgba(6,88,195,0.3)] bg-sky-900 mx-auto w-fit py-3 text-3xl px-5 rounded-lg"
+						className="text-white text-center active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-150 -translate-x-1 -translate-y-1 shadow-[4px_4px_0px_3px_rgba(6,88,195,0.3)] bg-sky-900 mx-auto w-fit py-3 lg:text-3xl md:text-2xl text-xl  px-5 rounded-lg"
 						href={"/tickets"}
 					>
 						Buy Tickets Now !
