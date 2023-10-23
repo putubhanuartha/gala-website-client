@@ -8,8 +8,10 @@ import { Spin as Hamburger } from "hamburger-react";
 const Header = () => {
 	const [open, setOpen] = useState(false);
 	return (
-		<div className="fixed left-0 right-0 h-20 md:h-24 flex flex-col items-center justify-center z-50 shadow-[0px_2px_12px_10px_rgba(255,255,255,0.1)] bg-[rgba(10,11,32,0.8)]">
-			<div className="container mx-auto flex items-center justify-between ">
+		<div
+			className={`fixed left-0 right-0 min-h-[5rem] md:min-h-[6rem] py-4 flex flex-col items-center justify-center z-50 shadow-[0px_2px_12px_10px_rgba(255,255,255,0.1)] bg-[rgba(10,11,32,0.8)]`}
+		>
+			<div className="container mx-auto flex items-center justify-between">
 				<Link
 					href="/"
 					className="border-[1px] border-white p-2"
@@ -40,7 +42,7 @@ const Header = () => {
 					/>
 				</div>
 			</div>
-			<div className={`${open ? "" : "hidden"} mt-3 py-3`}>
+			<div className={`${open ? "" : "hidden"} py-3 relative bottom-0`}>
 				<Navbutton />
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import "./nav-button.css"
+import "./nav-button.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import Link from "next/link";
 import ProfileCard from "./profile-card";
@@ -38,14 +38,14 @@ function Navbutton() {
 
 			<li
 				ref={listAuthCardRef}
-				className="relative overflow-visible "
+				className="relative overflow-visible lg:block hidden"
 			>
 				<button
 					onClick={() => {
 						setIsCardAuthActive(!isCardAuthActive);
 					}}
 					type="button"
-					className="rounded-full lg:block hidden p-1 border-[0.8px] border-white"
+					className="rounded-full hidden p-1 border-[0.8px] border-white"
 				>
 					<BsFillPersonFill
 						color="white"
@@ -56,6 +56,8 @@ function Navbutton() {
 					isCardAuthActive={isCardAuthActive}
 					setIsCardAuthActive={setIsCardAuthActive}
 				/>
+			</li>
+			<li>
 				<Link
 					className="lg:hidden"
 					href={"/login"}
