@@ -1,6 +1,5 @@
-"use client";
 import { useState, useEffect, useRef } from "react";
-import "./nav-button.css";
+import "./nav-button.css"
 import { BsFillPersonFill } from "react-icons/bs";
 import Link from "next/link";
 import ProfileCard from "./profile-card";
@@ -53,6 +52,21 @@ function Navbutton() {
 						size={25}
 					/>
 				</button>
+				<ProfileCard
+					isCardAuthActive={isCardAuthActive}
+					setIsCardAuthActive={setIsCardAuthActive}
+				/>
+				<Link
+					className="lg:hidden"
+					href={"/login"}
+				>
+					Login
+					<div className="-translate-x-[102%] lg:hidden group-hover:translate-x-0"></div>
+				</Link>
+			</li>
+			<li className="lg:hidden">
+				<Link href={"/login"}>Register</Link>
+				<div className="-translate-x-[102%] lg:hidden group-hover:translate-x-0"></div>
 			</li>
 		</ul>
 	);

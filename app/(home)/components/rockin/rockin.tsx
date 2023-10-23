@@ -21,7 +21,7 @@ const chunk2: ImageCardType[] = [
 	{ src: "/assets/throwback/chunk-2/sing-9.jpg", title: "sing 9" },
 	{ src: "/assets/throwback/chunk-2/sing-10.jpg", title: "sing 10" },
 ];
-const Throwback = () => {
+const Rockin = () => {
 	const ref = useRef(null);
 	const isInView: boolean = useInView(ref, { amount: 0.4, once: false });
 	return (
@@ -43,7 +43,7 @@ const Throwback = () => {
 							transition={{ duration: 0.6, delay: 0.2 }}
 							className="text-center z-40 text-3xl relative tracking-wider md:text-4xl lg:text-6xl xl:text-7xl uppercase font-semibold"
 						>
-							Throwback
+							LET&apos;S ROCK IN
 						</motion.h1>
 						<motion.h1
 							initial={{ x: 100, opacity: 0 }}
@@ -51,7 +51,7 @@ const Throwback = () => {
 							transition={{ duration: 0.6, delay: 0.2 }}
 							className="text-center text-3xl z-40 relative tracking-wider md:text-4xl lg:text-6xl xl:text-7xl uppercase font-semibold"
 						>
-							GALA 54 2022
+							GALA 55 2024
 						</motion.h1>
 						<motion.div
 							initial={{ y: 50, opacity: 0 }}
@@ -87,10 +87,10 @@ const Throwback = () => {
 			<div
 				className={`${
 					isInView ? "rounded-t-[70%]" : "rounded-t-none"
-				} absolute bottom-0 grey-gradient h-24 w-full z-30 transition-all duration-700 shadow-[0px_-12px_10px_3px_rgba(34,92,139,0.4)]`}
+				} absolute -bottom-2 grey-gradient h-24 w-full z-30 transition-all duration-700 shadow-[0px_-12px_10px_3px_rgba(34,92,139,0.4)]`}
 			></div>
 		</section>
 	);
 };
 
-export default Throwback;
+export default Rockin;

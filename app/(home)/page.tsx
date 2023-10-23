@@ -1,7 +1,7 @@
 import AboutGala from "./components/about-gala/about-gala";
 import Greetings from "./components/greetings/greetings";
 import Hero from "./components/hero";
-import Throwback from "./components/throwback/throwback";
+import Rockin from "./components/rockin/rockin";
 import Performance from "./components/performance/performance";
 export default function Home() {
 	return (
@@ -9,9 +9,8 @@ export default function Home() {
 			<Hero />
 			<AboutGala />
 			<Greetings />
-			<Performance/>
-			<Throwback />
-			
+			<Performance />
+			<Rockin />
 		</main>
 	);
 }

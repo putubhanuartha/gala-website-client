@@ -10,8 +10,8 @@ const AboutGala = () => {
 		target: ref,
 		offset: ["0 1", "1.33 1"],
 	});
-	const translateY = useTransform(scrollYProgress, [0, 0.7], [400, 0]);
-	const translateYLogo = useTransform(scrollYProgress, [0, 0.8], [450, 0]);
+	const translateY = useTransform(scrollYProgress, [0, 0.7], [300, 0]);
+	const translateYLogo = useTransform(scrollYProgress, [0, 0.8], [330, 0]);
 	return (
 		<section
 			ref={ref}

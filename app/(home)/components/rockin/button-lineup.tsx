@@ -22,7 +22,7 @@ const ButtonLineup = () => {
 				strokeWidth="3"
 				stroke="white"
 				className={`w-6 h-6 ${
-					hovered && "hover-stroke"
+					hovered && "stroke-blue-900"
 				} transition-colors duration-700`}
 			>
 				<path

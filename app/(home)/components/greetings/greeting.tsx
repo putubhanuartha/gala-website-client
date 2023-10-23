@@ -21,7 +21,7 @@ const Greeting: React.FC<GreetingProps> = ({
 	return (
 		<motion.div
 			style={{ ...styleFrameMotion }}
-			className="min-h-[27rem] bg-blue-900 px-7 py-6"
+			className="min-h-[27rem] bg-blue-900 px-7 py-6 rounded-xl"
 		>
 			<h2 className="text-3xl font-semibold">{title}</h2>
 			<div className="flex justify-between gap-x-4 mt-5">
