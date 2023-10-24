@@ -1,0 +1,10 @@
+#tickets h1,
+#tickets h2,
+#tickets p,
+#tickets h3 {
+	@apply text-black;
+}
+
+#header_table p {
+	@apply text-white;
+}

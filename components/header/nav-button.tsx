@@ -3,9 +3,11 @@ import styles from "./nav-button.module.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import Link from "next/link";
 import ProfileCard from "./profile-card";
+import DialogTicket from "../my-ticket/dialog-ticket";
 function Navbutton() {
 	const [isCardAuthActive, setIsCardAuthActive] = useState(false);
 	const listAuthCardRef = useRef<HTMLLIElement>(null);
+	let [isModalOpen, setIsModalOpen] = useState(false);
 	useEffect(() => {
 		const docClickListener = (e: any) => {
 			if (!listAuthCardRef.current?.contains(e.target)) {
@@ -18,7 +20,14 @@ function Navbutton() {
 		};
 	}, []);
 	return (
-		<ul id={styles.navbutton} className="flex items-center lg:gap-x-3 xl:gap-x-5 flex-col lg:flex-row gap-y-3">
+		<ul
+			id={styles.navbutton}
+			className="flex items-center lg:gap-x-3 xl:gap-x-5 flex-col lg:flex-row gap-y-3"
+		>
+			<DialogTicket
+				isModalOpen={isModalOpen}
+				setIsModalOpen={setIsModalOpen}
+			/>
 			<li className="group">
 				<Link href={"/"}>Home</Link>
 				<div className="-translate-x-[102%] group-hover:translate-x-0"></div>
@@ -35,10 +44,13 @@ function Navbutton() {
 				<Link href={"/faq"}>FAQ</Link>
 				<div className="-translate-x-[102%] group-hover:translate-x-0"></div>
 			</li>
-
+			<li className="group">
+				<button onClick={() => setIsModalOpen(true)}>My Ticket</button>
+				<div className="-translate-x-[102%] group-hover:translate-x-0"></div>
+			</li>
 			<li
 				ref={listAuthCardRef}
-				className="relative overflow-visible lg:block hidden"
+				className="relative lg:block hidden"
 			>
 				<button
 					onClick={() => {

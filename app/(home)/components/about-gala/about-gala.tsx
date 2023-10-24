@@ -32,7 +32,7 @@ const AboutGala = () => {
 							transition={{ duration: 0.5, delay: 0.4, ease: "easeInOut" }}
 							className="text-center text-xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-semibold"
 						>
-							Our Spectacular Night
+							Night of Art Appreciation
 						</motion.h1>
 						<motion.div
 							style={{ y: translateY }}

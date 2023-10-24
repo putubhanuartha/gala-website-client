@@ -1,0 +1,4 @@
+#ticket p,
+#ticket h4 , #ticket h1, #ticket span{
+	@apply text-black;
+}

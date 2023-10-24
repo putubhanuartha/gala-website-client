@@ -1,0 +1,6 @@
+#payment h1,
+#payment h2,
+#payment h3,
+#payment p {
+	@apply text-white;
+}
