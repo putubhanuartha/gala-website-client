@@ -1,7 +1,7 @@
 import { Menu, Transition } from "@headlessui/react";
 import React, { Fragment, JSX, SVGProps } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { TicketCategory, TicketCategoryType } from "./page";
+import { TicketCategory, TicketCategoryType } from "./tickets.type";
 export type MenuTicketCategoryProps = {
 	setTicketCategory: React.Dispatch<
 		React.SetStateAction<TicketCategoryType | null>

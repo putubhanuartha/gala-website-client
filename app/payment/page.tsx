@@ -7,7 +7,7 @@ import gopayImage from "../../public/assets/payment/gopay.png";
 import spayImage from "../../public/assets/payment/spay.png";
 import InputForm from "@/components/input-form";
 import PaymentListDetail from "./payment-list-detail";
-export enum PaymentMethod {
+enum PaymentMethod {
 	gopay = "gopay",
 	dana = "dana",
 	spay = "spay",

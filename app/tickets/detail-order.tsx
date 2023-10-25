@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./tickets.module.css";
-import { TicketCategoryType } from "./page";
+import { TicketCategoryType } from "./tickets.type";
 type DetailOrderProps = {
 	ticketCategory: TicketCategoryType | null;
 	qty: number;
