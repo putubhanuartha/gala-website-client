@@ -125,8 +125,8 @@ const PaymentPage = () => {
 								Putu Gde Arya Bhanuartha
 							</p>
 							<div className="flex items-center justify-between mt-2">
-								<p className="text-lg !text-gray-500">PRESALE - 2</p>
-								<p className="!text-gray-500 text-lg">3 pcs</p>
+								<p className="md:text-lg text-base !text-gray-500">PRESALE - 2</p>
+								<p className="!text-gray-500 text-base md:text-lg">3 pcs</p>
 							</div>
 							<div className="bg-green-700 py-1.5 px-2 mt-3">
 								<p className="!text-white text-center">KODE VOUCHER : </p>

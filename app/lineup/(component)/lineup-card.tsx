@@ -28,11 +28,14 @@ const LineupCard: React.FC<LineupCardPropsType> = ({
 					className="md:w-[20rem] md:h-[25rem] w-full md:max-w-none max-w-sm"
 				>
 					<Image
+						priority
 						src={imgUrl}
 						alt={title}
 						width={0}
+						placeholder="blur"
 						height={0}
-						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 30vw"
+						blurDataURL={imgUrl}
+						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30vw"
 						className="object-cover object-center md:w-80 w-full lg:h-full lg:max-h-none max-h-72 rounded-lg"
 					/>
 				</motion.div>

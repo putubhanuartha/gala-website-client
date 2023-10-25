@@ -10,8 +10,8 @@ const PaymentListDetail: React.FC<PaymentListDetailProps> = ({
 }) => {
 	return (
 		<div className="flex justify-between">
-			<p className="!text-slate-500 text-lg">{tagName}</p>
-			<p className="!text-slate-500 text-lg">Rp. {value}</p>
+			<p className="!text-slate-500 md:text-lg text-base">{tagName}</p>
+			<p className="!text-slate-500 md:text-lg text-base">Rp. {value}</p>
 		</div>
 	);
 };
