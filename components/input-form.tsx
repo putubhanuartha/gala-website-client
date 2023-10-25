@@ -7,6 +7,8 @@ export type InputFormProps = {
 	max?: number | undefined;
 	min?: number | undefined;
 	defaultValue?: number | string | undefined;
+	className?: string;
+	inputStyle?: string;
 	onChange?: (el: React.FormEvent<HTMLInputElement>) => void;
 	required?: boolean;
 };
@@ -20,9 +22,11 @@ const InputForm: React.FC<InputFormProps> = ({
 	max,
 	min,
 	onChange,
+	className,
+	inputStyle,
 }) => {
 	return (
-		<div className="flex flex-1 flex-col gap-y-1">
+		<div className={`flex flex-1 flex-col gap-y-1 ${className}`}>
 			<label
 				htmlFor={idHtml}
 				className="text-slate-700"
@@ -34,7 +38,7 @@ const InputForm: React.FC<InputFormProps> = ({
 				required={required}
 				type={type}
 				placeholder={placeholder}
-				className="px-3 py-1.5 border-none outline-none rounded-lg transition-all duration-200 focus:shadow-[0px_0px_7px_5px_rgba(46,49,146,0.3)]"
+				className={`px-3 py-1.5 border-none outline-none rounded-lg transition-all duration-200 focus:shadow-[0px_0px_7px_5px_rgba(46,49,146,0.3)] ${inputStyle}`}
 				id={idHtml}
 				name={idHtml}
 				min={min}

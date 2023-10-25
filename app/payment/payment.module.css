@@ -4,3 +4,23 @@
 #payment p {
 	@apply text-white;
 }
+
+#payment input[type="radio"] {
+	/* Add if not using autoprefixer */
+	-webkit-appearance: none;
+	appearance: none;
+	/* For iOS < 15 to remove gradient background */
+	background-color: #fff;
+	/* Not removed via appearance */
+	margin: 0;
+}
+
+#payment input[type="radio"]:checked + label div {
+	box-shadow: 0px 0px 6px 3px rgba(46, 49, 146, 0.2);
+	border: 1.5px rgba(46, 49, 146, 0.6) solid;
+}
+
+#ticket p {
+	@apply text-black;
+}
+

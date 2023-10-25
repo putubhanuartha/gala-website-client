@@ -2,7 +2,7 @@
 import { FormEvent, useState } from "react";
 import MenuTicketCategory from "./menu-category";
 import styles from "./tickets.module.css";
-import InputForm from "./input-form";
+import InputForm from "../../components/input-form";
 import DetailOrder from "./detail-order";
 import { useRouter } from "next/navigation";
 export const TicketCategory = {
@@ -15,7 +15,7 @@ export const TicketCategory = {
 		price: 200000,
 	} as TicketCategoryType,
 	vip: {
-		text: "Pre sale 3",
+		text: "VIP Ticket",
 		price: 400000,
 	} as TicketCategoryType,
 };
