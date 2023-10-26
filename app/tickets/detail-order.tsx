@@ -4,10 +4,15 @@ import { TicketCategoryType } from "./tickets.type";
 type DetailOrderProps = {
 	ticketCategory: TicketCategoryType | null;
 	qty: number;
+	tax: number;
 };
-const DetailOrder: React.FC<DetailOrderProps> = ({ qty, ticketCategory }) => {
+const DetailOrder: React.FC<DetailOrderProps> = ({
+	qty,
+	ticketCategory,
+	tax,
+}) => {
 	const price = qty * (ticketCategory?.price as number);
-	const tax = 0.1 * price;
+	const taxAmount = (tax / 100) * price;
 
 	return (
 		<div id={styles.detail_order}>
@@ -27,11 +32,11 @@ const DetailOrder: React.FC<DetailOrderProps> = ({ qty, ticketCategory }) => {
 				</div>
 				<div className="flex justify-between px-3 py-1 bg-white">
 					<p>TAX ( 10% )</p>
-					<p>Rp. {tax}</p>
+					<p>Rp. {taxAmount}</p>
 				</div>
 				<div className="flex justify-between px-3 pt-1 pb-3 bg-slate-100">
 					<p>Grand Total</p>
-					<p>Rp. {price + tax}</p>
+					<p>Rp. {price + taxAmount}</p>
 				</div>
 			</div>
 		</div>

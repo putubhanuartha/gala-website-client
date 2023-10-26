@@ -5,9 +5,11 @@ import styles from "./tickets.module.css";
 import InputForm from "../../components/input-form";
 import DetailOrder from "./detail-order";
 import { useRouter } from "next/navigation";
-import { TicketCategoryType } from "./tickets.type";
+import { FormDataType, TicketCategoryType } from "./tickets.type";
+
 
 const TicketPage = () => {
+	const tax = 10;
 	const router = useRouter();
 	const [ticketCategory, setTicketCategory] =
 		useState<TicketCategoryType | null>(null);
@@ -15,7 +17,23 @@ const TicketPage = () => {
 	function handleSubmitForm(el: FormEvent<HTMLFormElement>) {
 		el.preventDefault();
 		const formData = new FormData(el.currentTarget);
-		console.log(formData);
+		const fullname = formData.get("fullname") as string;
+		const nik = formData.get("nik") as string;
+		const email = formData.get("email") as string;
+		const phone = formData.get("phone") as string;
+		const qty = formData.get("qty") as string;
+		const voucher = formData.get("voucher") as string;
+		const formDataSend: FormDataType = {
+			email,
+			fullname,
+			nik,
+			phone,
+			qty,
+			ticketCategoryData: ticketCategory as TicketCategoryType,
+			voucher,
+			tax,
+		};
+		window.sessionStorage.setItem("FORM_DATA", JSON.stringify(formDataSend));
 		router.push("/payment");
 	}
 	return (
@@ -93,6 +111,7 @@ const TicketPage = () => {
 							/>
 						</div>
 						<DetailOrder
+							tax={tax}
 							qty={qty}
 							ticketCategory={ticketCategory}
 						/>
