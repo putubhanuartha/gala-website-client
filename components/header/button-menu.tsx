@@ -69,7 +69,7 @@ const ButtonMenu = () => {
 									} group flex w-full items-center rounded-md justify-between px-2 py-2 text-sm`}
 								>
 									<Link
-										href={"payment"}
+										href={"/payment"}
 										className={`${
 											active ? " text-white" : "text-gray-900"
 										} w-full block font-semibold text-lg tracking-wider`}
