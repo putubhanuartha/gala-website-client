@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import city from "../../../../public/assets/performance/city.svg";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import leftCloud from "../../../../public/assets/performance/cloud/left.png";
 import rightCloud from "../../../../public/assets/performance/cloud/right.png";
 import cloud_3 from "../../../../public/assets/performance/cloud/cloud-3.png";
@@ -33,8 +33,13 @@ const performanceData: PerformanceCardType[] = [
 	},
 ];
 const Performance = () => {
+	const ref = useRef(null);
+	const isInview = useInView(ref, { once: false });
 	return (
-		<section className="relative overflow-hidden flex flex-col xl:gap-y-20 lg:gap-y-16 md:gap-y-11 gap-y-8 items-center primary-color z-40 min-h-screen pt-48  pb-20">
+		<section
+			ref={ref}
+			className="relative overflow-hidden flex flex-col xl:gap-y-20 lg:gap-y-16 md:gap-y-11 gap-y-8 items-center primary-color z-40 min-h-screen pt-48  pb-20"
+		>
 			<div className="w-full h-32 absolute z-10 lg:-top-10 md:top-0 top-3">
 				<Image
 					src={city}
@@ -130,26 +135,41 @@ const Performance = () => {
 					/>
 				</motion.div>
 			</div>
-			<h1 className="text-center text-xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-semibold">
-				OUR TALENT PERFORMANCE
-			</h1>
-			<div className="overflow-hidden container mx-auto">
-				<Swiper
-					navigation={true}
-					modules={[Navigation]}
-					className="mySwiper  px-4 py-4 rounded-xl"
-					spaceBetween={30}
-					slidesPerView={"auto"}
-					loop
+			{isInview && (
+				<motion.h1
+					initial={{ y: 100, opacity: 0 }}
+					animate={{ y: 0, opacity: 1 }}
+					transition={{ ease: "easeInOut", duration: 0.4, delay: 0.3 }}
+					className="text-center text-xl md:text-2xl lg:text-4xl xl:text-5xl uppercase font-semibold"
 				>
-					{performanceData.map((el, index) => {
-						return (
-							<SwiperSlide key={index}>
-								<PerformanceCard {...el} />
-							</SwiperSlide>
-						);
-					})}
-				</Swiper>
+					OUR TALENT PERFORMANCE
+				</motion.h1>
+			)}
+			<div className="overflow-hidden container mx-auto">
+				{isInview && (
+					<motion.div
+						initial={{ y: 130, opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
+						transition={{ ease: "easeInOut", duration: 0.4, delay: 0.6 }}
+					>
+						<Swiper
+							navigation={true}
+							modules={[Navigation]}
+							className="mySwiper  px-4 py-4 rounded-xl"
+							spaceBetween={30}
+							slidesPerView={"auto"}
+							loop
+						>
+							{performanceData.map((el, index) => {
+								return (
+									<SwiperSlide key={index}>
+										<PerformanceCard {...el} />
+									</SwiperSlide>
+								);
+							})}
+						</Swiper>
+					</motion.div>
+				)}
 			</div>
 		</section>
 	);
