@@ -72,14 +72,14 @@ function Navbutton() {
 			<li>
 				<Link
 					className="lg:hidden"
-					href={"/login"}
+					href={"/auth/login"}
 				>
 					Login
 					<div className="-translate-x-[102%] lg:hidden group-hover:translate-x-0"></div>
 				</Link>
 			</li>
 			<li className="lg:hidden">
-				<Link href={"/login"}>Register</Link>
+				<Link href={"/auth/register"}>Register</Link>
 				<div className="-translate-x-[102%] lg:hidden group-hover:translate-x-0"></div>
 			</li>
 		</ul>

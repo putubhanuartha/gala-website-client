@@ -31,7 +31,7 @@ const ProfileCard: React.FC<ProfileCardPropsType> = ({
 						setIsCardAuthActive(false);
 					}}
 					className="text-black text-sm hover:underline underline-offset-2"
-					href={"/login"}
+					href={"/auth/login"}
 				>
 					Login
 				</Link>
@@ -42,7 +42,7 @@ const ProfileCard: React.FC<ProfileCardPropsType> = ({
 						setIsCardAuthActive(false);
 					}}
 					className="text-black text-sm hover:underline underline-offset-2"
-					href={"/register"}
+					href={"/auth/register"}
 				>
 					Register
 				</Link>

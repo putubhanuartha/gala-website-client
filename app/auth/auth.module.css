@@ -1,0 +1,17 @@
+.form a,
+.form p,
+.form input {
+	@apply !text-black;
+}
+.form {
+	@apply shadow-[0px_0px_15px_5px_rgba(255,255,255,0.4)] bg-white flex flex-col gap-y-5 max-w-xl mx-auto px-7 pt-11 py-8 rounded-lg;
+}
+.form input {
+	@apply py-1.5 px-2 mt-1 border-2 transition-all duration-200 border-sky-800 rounded-md focus:shadow-[0px_0px_9px_3px_rgba(3,105,161,0.3)];
+}
+.form button {
+	@apply bg-sky-700 py-1.5 rounded-lg hover:bg-sky-900 transition-colors duration-200;
+}
+.form_control {
+	@apply flex flex-col;
+}

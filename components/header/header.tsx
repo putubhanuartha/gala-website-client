@@ -9,7 +9,7 @@ const Header = () => {
 	const [open, setOpen] = useState(false);
 	return (
 		<div
-			className={`fixed left-0 right-0 min-h-[5rem] md:min-h-[6rem] py-4 flex flex-col items-center justify-center z-[9999] shadow-[0px_2px_12px_10px_rgba(255,255,255,0.1)] bg-[rgba(10,11,32,0.8)]`}
+			className={`fixed left-0 right-0 min-h-[5rem] md:min-h-[6rem] py-4 flex flex-col items-center justify-center z-[99] shadow-[0px_2px_12px_10px_rgba(255,255,255,0.1)] bg-[rgba(10,11,32,0.8)]`}
 		>
 			<div className="container mx-auto flex items-center justify-between">
 				<Link

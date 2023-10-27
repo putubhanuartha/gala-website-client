@@ -10,6 +10,8 @@ import PaymentListDetail from "./payment-list-detail";
 import { FormDataType } from "../tickets/tickets.type";
 import LoaderDetailPembayaran from "./loader-detail-pembayaran";
 import { EwalletType } from "../tickets/tickets.type";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 const PaymentMethod = {
 	gopay: {
 		text: "gopay",
@@ -23,7 +25,8 @@ const PaymentMethod = {
 };
 
 const PaymentPage = () => {
-	const [formData, setFormData] = useState<FormDataType | null>(null);
+	const router = useRouter();
+	const [formDataState, setFormDataState] = useState<FormDataType | null>(null);
 	const [selectedEwallet, setSelectedEwallet] = useState<
 		"gopay" | "dana" | "spay"
 	>("gopay");
@@ -32,14 +35,49 @@ const PaymentPage = () => {
 		const sessionStorageFormData = window.sessionStorage.getItem("FORM_DATA");
 		if (sessionStorageFormData) {
 			const formData = JSON.parse(sessionStorageFormData) as FormDataType;
-			setFormData(formData);
+			setFormDataState(formData);
+		} else {
+			router.replace("/tickets");
+			toast("Fill ticket form first", {
+				type: "warning",
+				position: "top-center",
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light",
+			});
 		}
-	}, []);
+	}, [router]);
 	const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
 		const payment = formData.get("payment");
 		const phone = formData.get("phone");
+		let grandTotalPrice;
+		if (formDataState) {
+			grandTotalPrice =
+				formDataState.ticketCategoryData.price * Number(formDataState.qty) +
+				((Number(formDataState.tax) / 100) *
+					Number(formDataState.ticketCategoryData.price) +
+					PaymentMethod[selectedEwallet].fee -
+					(formDataState.voucher !== "" ? 1000 : 0));
+		}
+		console.log(payment, phone, grandTotalPrice);
+		toast.success("Pembayaran sedang di proses !", {
+			position: "top-center",
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "light",
+		});
+		window.sessionStorage.removeItem("FORM_DATA")
+		router.replace("/")
 	};
 	const handleChangeRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSelectedEwallet(e.target.value as any);
@@ -68,6 +106,8 @@ const PaymentPage = () => {
 										id={PaymentMethod.gopay.text}
 										value={PaymentMethod.gopay.text}
 										onChange={handleChangeRadio}
+										defaultValue={selectedEwallet}
+										defaultChecked
 										required
 									/>
 									<label htmlFor={PaymentMethod.gopay.text}>
@@ -131,7 +171,7 @@ const PaymentPage = () => {
 								</div>
 							</div>
 
-							{formData ? (
+							{formDataState ? (
 								<InputForm
 									idHtml="phone"
 									labelTitle="Phone number"
@@ -139,7 +179,7 @@ const PaymentPage = () => {
 									type="number"
 									inputStyle="shadow-lg"
 									required
-									defaultValue={formData.phone}
+									defaultValue={formDataState.phone}
 								/>
 							) : (
 								<div className="bg-slate-300 animate-pulse h-7"></div>
@@ -151,45 +191,45 @@ const PaymentPage = () => {
 					</div>
 					<div className="flex-1 h-full max-w-3xl w-full ">
 						<p className="text-lg capitalize text-center">Detail pembayaran</p>
-						{formData ? (
+						{formDataState ? (
 							<div
 								id={styles.ticket}
 								className="bg-white px-3 py-5 rounded-md mt-3 h-full"
 							>
 								<p className="px-2 py-1 bg-slate-300 !text-black uppercase text-center">
-									{formData.fullname}
+									{formDataState.fullname}
 								</p>
 								<div className="flex items-center justify-between mt-2">
 									<p className="md:text-lg text-base !text-gray-500">
-										{formData.ticketCategoryData.text}
+										{formDataState.ticketCategoryData.text}
 									</p>
 									<p className="!text-gray-500 text-base md:text-lg">
-										{formData.qty} pcs
+										{formDataState.qty} pcs
 									</p>
 								</div>
 								<div className="bg-green-700 py-1.5 px-2 mt-3">
 									<p className="!text-white text-center">
-										KODE VOUCHER : {formData.voucher}
+										KODE VOUCHER : {formDataState.voucher}
 									</p>
 								</div>
 								<div className="flex flex-col gap-y-3 mt-3">
 									<PaymentListDetail
 										tagName="Ticket price"
 										value={
-											Number(formData.ticketCategoryData.price) *
-											Number(formData.qty)
+											Number(formDataState.ticketCategoryData.price) *
+											Number(formDataState.qty)
 										}
 									/>
 									<PaymentListDetail
 										tagName="TAX (10%)"
 										value={
-											(Number(formData.tax) / 100) *
-											Number(formData.ticketCategoryData.price)
+											(Number(formDataState.tax) / 100) *
+											Number(formDataState.ticketCategoryData.price)
 										}
 									/>
 									<PaymentListDetail
 										tagName="Voucher Discount"
-										value={formData.voucher !== "" ? 1000 : 0}
+										value={formDataState.voucher !== "" ? 1000 : 0}
 									/>
 									<PaymentListDetail
 										tagName="Admin Fee"
@@ -198,11 +238,12 @@ const PaymentPage = () => {
 									<PaymentListDetail
 										tagName="Grand Total"
 										value={
-											formData.ticketCategoryData.price * Number(formData.qty) +
-											((Number(formData.tax) / 100) *
-												Number(formData.ticketCategoryData.price) +
+											formDataState.ticketCategoryData.price *
+												Number(formDataState.qty) +
+											((Number(formDataState.tax) / 100) *
+												Number(formDataState.ticketCategoryData.price) +
 												PaymentMethod[selectedEwallet].fee -
-												(formData.voucher !== "" ? 1000 : 0))
+												(formDataState.voucher !== "" ? 1000 : 0))
 										}
 									/>
 								</div>
