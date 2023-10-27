@@ -1,24 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import styles from "./nav-button.module.css";
-import { BsFillPersonFill } from "react-icons/bs";
 import Link from "next/link";
-import ProfileCard from "./profile-card";
 import DialogTicket from "../my-ticket/dialog-ticket";
+import ButtonMenu from "./button-menu";
+
 function Navbutton() {
-	const [isCardAuthActive, setIsCardAuthActive] = useState(false);
-	const listAuthCardRef = useRef<HTMLLIElement>(null);
 	let [isModalOpen, setIsModalOpen] = useState(false);
-	useEffect(() => {
-		const docClickListener = (e: any) => {
-			if (!listAuthCardRef.current?.contains(e.target)) {
-				setIsCardAuthActive(false);
-			}
-		};
-		document.addEventListener("click", docClickListener);
-		return () => {
-			removeEventListener("click", docClickListener);
-		};
-	}, []);
 	return (
 		<ul
 			id={styles.navbutton}
@@ -48,32 +35,8 @@ function Navbutton() {
 				<button onClick={() => setIsModalOpen(true)}>My Ticket</button>
 				<div className="-translate-x-[102%] group-hover:translate-x-0"></div>
 			</li>
-			<li
-				ref={listAuthCardRef}
-				className="relative lg:block hidden"
-			>
-				<button
-					onClick={() => {
-						setIsCardAuthActive(!isCardAuthActive);
-					}}
-					type="button"
-					className="rounded-full hidden p-1 border-[0.8px] border-white"
-				>
-					<BsFillPersonFill
-						color="white"
-						size={25}
-					/>
-				</button>
-				<ProfileCard
-					isCardAuthActive={isCardAuthActive}
-					setIsCardAuthActive={setIsCardAuthActive}
-				/>
-			</li>
-			<li>
-				<Link
-					className="lg:hidden"
-					href={"/auth/login"}
-				>
+			<li className="lg:hidden">
+				<Link href={"/auth/login"}>
 					Login
 					<div className="-translate-x-[102%] lg:hidden group-hover:translate-x-0"></div>
 				</Link>
@@ -82,6 +45,7 @@ function Navbutton() {
 				<Link href={"/auth/register"}>Register</Link>
 				<div className="-translate-x-[102%] lg:hidden group-hover:translate-x-0"></div>
 			</li>
+			<ButtonMenu />
 		</ul>
 	);
 }

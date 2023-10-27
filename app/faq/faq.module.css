@@ -1,0 +1,14 @@
+#faq h2,
+#faq p,
+#faq button,
+#faq input {
+	@apply text-black;
+}
+
+#faq li {
+	@apply overflow-visible h-fit;
+}
+
+#faq p {
+	@apply text-sm;
+}
