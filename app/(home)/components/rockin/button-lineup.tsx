@@ -11,7 +11,7 @@ const ButtonLineup = () => {
 				setHovered(false);
 			}}
 			href={"lineup"}
-			className="text-lg relative z-50 flex items-center gap-x-2 h-full md:text-xl lg:text-2xl xl:text-3xl font-semibold  "
+			className="text-lg relative z-50 flex items-center gap-x-2 h-full md:text-xl lg:text-2xl xl:text-3xl font-semibold"
 		>
 			<span className="group-hover:text-blue-900 transition-all duration-700">
 				Line Up Artist
