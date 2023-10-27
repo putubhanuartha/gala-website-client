@@ -21,28 +21,30 @@ const LineupCard: React.FC<LineupCardPropsType> = ({
 			className="flex gap-x-5 md:flex-row flex-col lg:items-center md:items-start items-center"
 		>
 			{isInView && (
-				<motion.div
-					initial={{ y: -50, opacity: 0 }}
-					animate={{ y: 0, opacity: 100 }}
-					transition={{ delay: 0.3, duration: 0.4, ease: "easeInOut" }}
-					className="md:w-[20rem] md:h-[25rem] w-full md:max-w-none max-w-sm"
-				>
-					<Image
-						priority
-						src={imgUrl}
-						alt={title}
-						width={0}
-						placeholder="blur"
-						height={0}
-						blurDataURL={imgUrl}
-						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30vw"
-						className="object-cover object-center md:w-80 w-full lg:h-full lg:max-h-none max-h-72 rounded-lg"
-					/>
-				</motion.div>
+				<div>
+					<motion.div
+						initial={{ y: -50, opacity: 0 }}
+						animate={{ y: 0, opacity: 100 }}
+						transition={{ delay: 0.3, duration: 0.4, ease: "easeInOut" }}
+						className="md:w-[20rem] md:h-[25rem] w-full md:max-w-none max-w-sm"
+					>
+						<Image
+							priority
+							src={imgUrl}
+							alt={title}
+							width={0}
+							placeholder="blur"
+							height={0}
+							blurDataURL={imgUrl}
+							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30vw"
+							className="object-cover object-center md:w-80 w-full lg:h-full lg:max-h-none max-h-72 rounded-lg"
+						/>
+					</motion.div>
+				</div>
 			)}
 			<div className="flex flex-col mt-2 flex-1 justify-between">
-				<div className="flex flex-col lg:gap-y-4 md:gap-y-3 gap-y-2">
-					{isInView && (
+				{isInView && (
+					<div className="flex flex-col lg:gap-y-4 md:gap-y-3 gap-y-2">
 						<motion.h3
 							initial={{ y: -50, opacity: 0 }}
 							animate={{ y: 0, opacity: 100 }}
@@ -51,8 +53,6 @@ const LineupCard: React.FC<LineupCardPropsType> = ({
 						>
 							{title}
 						</motion.h3>
-					)}
-					{isInView && (
 						<motion.p
 							initial={{ x: 100, opacity: 0 }}
 							animate={{ x: 0, opacity: 100 }}
@@ -61,16 +61,18 @@ const LineupCard: React.FC<LineupCardPropsType> = ({
 						>
 							{description}
 						</motion.p>
-					)}
-				</div>
+					</div>
+				)}
 				{isInView && (
-					<motion.div
-						initial={{ x: 100, opacity: 0 }}
-						animate={{ x: 0, opacity: 100 }}
-						transition={{ delay: 0.3, duration: 0.4, ease: "easeInOut" }}
-						className="max-w-lg min-w-[28rem] lg:block hidden mt-5"
-						dangerouslySetInnerHTML={{ __html: childrenHtml }}
-					/>
+					<div>
+						<motion.div
+							initial={{ x: 100, opacity: 0 }}
+							animate={{ x: 0, opacity: 100 }}
+							transition={{ delay: 0.3, duration: 0.4, ease: "easeInOut" }}
+							className="max-w-lg min-w-[28rem] lg:block hidden mt-5"
+							dangerouslySetInnerHTML={{ __html: childrenHtml }}
+						/>
+					</div>
 				)}
 			</div>
 		</div>
