@@ -36,6 +36,12 @@ function Navbutton() {
 				<div className="-translate-x-[102%] group-hover:translate-x-0"></div>
 			</li>
 			<li className="lg:hidden">
+				<Link href={"/payment"}>
+					My Payment
+					<div className="-translate-x-[102%] lg:hidden group-hover:translate-x-0"></div>
+				</Link>
+			</li>
+			<li className="lg:hidden">
 				<Link href={"/auth/login"}>
 					Login
 					<div className="-translate-x-[102%] lg:hidden group-hover:translate-x-0"></div>
@@ -45,7 +51,9 @@ function Navbutton() {
 				<Link href={"/auth/register"}>Register</Link>
 				<div className="-translate-x-[102%] lg:hidden group-hover:translate-x-0"></div>
 			</li>
-			<ButtonMenu />
+			<div className="lg:block hidden">
+				<ButtonMenu />
+			</div>
 		</ul>
 	);
 }

@@ -31,6 +31,7 @@ const PaymentPage = () => {
 		"gopay" | "dana" | "spay"
 	>("gopay");
 
+
 	useEffect(() => {
 		const sessionStorageFormData = window.sessionStorage.getItem("FORM_DATA");
 		if (sessionStorageFormData) {
@@ -106,7 +107,6 @@ const PaymentPage = () => {
 										id={PaymentMethod.gopay.text}
 										value={PaymentMethod.gopay.text}
 										onChange={handleChangeRadio}
-										defaultValue={selectedEwallet}
 										defaultChecked
 										required
 									/>
